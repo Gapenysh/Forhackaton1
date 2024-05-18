@@ -1,0 +1,84 @@
+
+.smaller-tooltip {
+	font-size: 0.85em; /* измените размер шрифта в соответствии с вашими требованиями */
+	max-height: 6px;
+	max-width: 1000px; /* измените значение, чтобы установить максимальную ширину метки */
+}
+.circle-icon {
+	border-radius: 50%;
+	border: 2px solid #3498db;
+}
+
+.popup-container {
+	max-height: 570px;
+	margin: 0%;
+
+	.popup-title {
+		font-size: 18px;
+		text-align: center;
+	}
+
+	.image-slider {
+		width: 100%;
+		overflow: hidden;
+		display: flex;
+		flex-direction: row;
+	}
+
+	.image-wrapper {
+		width: calc(
+			100% + 20px
+		); // 20px - это суммарный размер маргинов между изображениями
+		transition: transform 0.5s ease;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.slider-img {
+		height: 240px;
+		width: 260px;
+
+		object-fit: cover;
+		margin: 0 10px;
+		display: block;
+	}
+
+	.slider-btn {
+		position: absolute;
+		top: 35%;
+		margin-left: -5px;
+		left: 89%;
+		z-index: 1;
+		width: 40px;
+		height: 40px;
+		transform: translateY(-35%);
+		background-color: rgba(157, 213, 251, 0.5);
+		color: rgb(0, 0, 0);
+		border: none;
+		border-radius: 50%;
+		padding: 10px;
+		cursor: pointer;
+	}
+	.prev-btn {
+		left: 10px;
+	}
+	.next-btn {
+		right: 10px;
+	}
+
+	.popup-description {
+		height: 150px;
+		overflow-y: auto;
+		margin-bottom: 30px;
+	}
+
+	#video-button {
+		padding: 10px 20px;
+		background-color: #3498db;
+		color: #fff;
+		border: 1px solid #3498db;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+}

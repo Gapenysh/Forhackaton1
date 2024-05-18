@@ -1,0 +1,80 @@
+.background-container {
+	position: fixed;
+	background-color: #657052; // Зеленый фон
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+}
+
+.image-container {
+	background-image: url("https://celes.club/uploads/posts/2022-05/1651813832_63-celes-club-p-respublika-tatarstan-priroda-krasivo-foto-67.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	position: fixed;
+	width: 1400px; // Ширина контейнера с изображением
+	height: 650px; // Высота контейнера с изображением
+	border-radius: 50px; // Скругление углов
+	top: 41px;
+	left: 58px;
+}
+.buttonrun {
+	position: fixed;
+	width: 350px;
+	height: 80px;
+	left: calc(50% - 350px / 2);
+	top: 577px;
+}
+/* Татгид */
+h1 {
+	position: fixed;
+	width: 961px;
+	height: 295px;
+	left: calc(50% - 961px / 2 + 0.5px);
+	top: 130px;
+
+	font-family: "Good Vibes Pro";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 150px;
+	top: 20px;
+	margin-left: 16%;
+	color: #32362c;
+
+	text-shadow: 0px 6px 15px rgba(0, 0, 0, 0.35);
+}
+p {
+	position: absolute;
+	width: 350px;
+	height: 80px;
+	left: calc(50% - 350px / 2);
+	top: 577px;
+
+	background: rgba(217, 217, 217, 0.22);
+	backdrop-filter: blur(4.3px);
+	/* Note: backdrop-filter has minimal browser support */
+	border-radius: 0px 50px 50px 0px;
+	/* картага күчү */
+
+	position: absolute;
+	width: 216px;
+	height: 44px;
+	left: 812px;
+	top: 595px;
+
+	font-family: "Nunito Sans";
+	font-style: normal;
+	font-weight: 800;
+	font-size: 32px;
+	line-height: 44px;
+	/* identical to box height */
+	text-align: right;
+	letter-spacing: 0.03em;
+	color: #32362c;
+
+}
