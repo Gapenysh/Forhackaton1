@@ -3,7 +3,7 @@ from flask import Flask, request, jsonify
 import sqlite3
 from project.user_model import RefactData
 
-@app.route('/landmarks', methods=["POST", "GET"])
+@app.route('/map', methods=["POST", "GET"])
 def get_landmarks_from_name():
     name = request.json.get("name", None)
     data = None
