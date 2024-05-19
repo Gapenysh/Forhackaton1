@@ -376,11 +376,11 @@ export class MapComponent implements OnInit {
 	public categories: string[] = []
 	public showFilter = false
 	public defaultCategories = [
-		'все',
-		'Достопримечательность',
-		'Статуя',
-		'Музеи',
-		'Парки',
+		'барча',
+		'истәлекле урыннар',
+		'Һәйкәл',
+		'Музейлар',
+		'Парклар',
 	]
 	public markers: any[] = [] // Массив с вашими метками на карте
 
@@ -462,30 +462,28 @@ export class MapComponent implements OnInit {
 			this.markers.forEach((marker) => {
 				marker.setOpacity(1)
 			})
-		}
-		else{
+		} else {
 			// Скрыть маркеры, которые не относятся к выбранной категории
-		this.markers.forEach((marker) => {
-			const landmark = marker.get('landmark')
-			if (landmark[7] !== category) {
-				marker.setOpacity(0)
-			}
-		})
-
-		// Показать маркеры, которые относятся к выбранной категории, но были скрыты ранее
-		this.land.forEach((land) => {
-			if (land[7] === category) {
-				const marker = this.markers.find(
-					(marker) => marker.get('landmark') === land
-				)
-				if (marker) {
-					marker.setOpacity(1)
+			this.markers.forEach((marker) => {
+				const landmark = marker.get('landmark')
+				if (landmark[7] !== category) {
+					marker.setOpacity(0)
 				}
-			}
-		})
+			})
+
+			// Показать маркеры, которые относятся к выбранной категории, но были скрыты ранее
+			this.land.forEach((land) => {
+				if (land[7] === category) {
+					const marker = this.markers.find(
+						(marker) => marker.get('landmark') === land
+					)
+					if (marker) {
+						marker.setOpacity(1)
+					}
+				}
+			})
 		}
 	}
-	
 
 	private addTatarstanBorder(): void {
 		this.http.get('assets/Tatarstan.geojson').subscribe((json: any) => {
@@ -503,16 +501,35 @@ export class MapComponent implements OnInit {
 
 					if (districtInfo) {
 						const [name, description, imageUrl, videoUrl] = districtInfo
-						layer.bindPopup(`<div style="max-height: 570px;">
-				  <h3 style="font-size: 18px;">${name}</h3>
-				  <img src="${imageUrl}" style="max-height: 240px; width: 300px ">
-				  <p style="height: 150px; overflow-y: auto; margin-bottom:30px ;">${description}</p>
-				  <button id="video-button" style="padding: 10px 20px;
-					background-color: #3498db;
-					color:#fff;
-					border: 1px solid #3498db;
-					border-radius: 5px;
-					cursor: pointer;">Видео</button>
+						layer.bindPopup(`<div style="max-height: 650px; ">
+						<h3 style="font-size: 25px; text-align: center; border: 2px solid #f0f8c8; padding: 5px;background-color:#f0f8c8; border-radius: 15px;">${name}</h3>
+				  <img src="${imageUrl}" style="height: 240px; width: 300px;border-radius: 60px; ">
+				  <p style="height: 150px; overflow-y: auto; margin-bottom: 20px; font-size: 15px; border: 2px solid #f5f5dc; background-color: #f0f8c8; padding: 5px; border-radius: 12px;">
+  ${description}
+  <style>
+    /* Полоса прокрутки для Firefox */
+    p {
+      scrollbar-width: thin;
+      scrollbar-color: #8b8b00 #f0f8c8;
+    }
+
+    /* Полоса прокрутки для Chrome, Edge и Safari */
+    p::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    p::-webkit-scrollbar-track {
+      background: #f0f8c8;
+    }
+
+    p::-webkit-scrollbar-thumb {
+      background-color: #8b8b00;
+      border-radius: 20px;
+      border: 3px solid #f0f8c8;
+    }
+  </style>
+</p>
+<button id="video-button" style="position: absolute; top: 40%; left: 49%; transform: translate(-40%, -49%); padding: 10px 20px; background-color: transparent; color: white; border: none; cursor: pointer; font-size: 42px;">&#9658;</button>
 				</div>`)
 
 						layer.on('popupopen', () => {
@@ -598,12 +615,7 @@ export class MapComponent implements OnInit {
 		</div>
 		<button class="slider-btn next-btn">&#10095;</button>
 	  </div>
-	  <p class="popup-description">${description}</p><a id="video-button" style="padding: 10px 20px;
-		background-color: #3498db;
-		color:#fff;
-		border: 1px solid #3498db;
-    border-radius: 5px;
-    cursor: pointer;">Видео</a>
+	  <p class="popup-description">${description}</p><a id="video-button" style="position: absolute; top: 40%; left: 49%; transform: translate(-40%, -49%); padding: 10px 20px; background-color: transparent; color: white; border: none; cursor: pointer; font-size: 42px;">&#9658;</a>
 </div>
 `
 
